@@ -17,8 +17,7 @@ def get_product_by_sku(sku: str) -> str:
     """
     query = """
         SELECT pd.product_dscr,pd.product_category_dscr,pd.product_subcategory_dscr,pd.product_type_nm,pd.product_type_group_nm, pd.sku_nbr, pd.department_dscr FROM `dataanalytics-013124-1d2.antonyp.product_dim` pd
-        --where sku = @sku and pd.product_dscr <> ''
-        LIMIT 1
+        where sku = @sku and pd.product_dscr <> ''
     """
     job_config = bigquery.QueryJobConfig(
         query_parameters=[
